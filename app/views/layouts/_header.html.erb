@@ -10,7 +10,7 @@
             <li><a href="#">検索</a></li>
             <li><a href="#">ゆずる</a></li>
             <li><a href="#">プロフィール</a></li>
-            <li><%= link_to "設定", edit_user_path(@user) %></a></li>
+            <li><%= link_to "設定", edit_user_path(current_user) %></a></li>
           </ul>
         </nav>
       <% else %>
