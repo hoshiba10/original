@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "会員登録が完了しました"
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       render 'new'
@@ -16,6 +17,19 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+  end
+  
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
   
   private 
