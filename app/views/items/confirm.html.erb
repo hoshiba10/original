@@ -29,17 +29,10 @@
                         <%= @item.content %>
                         <%= f.hidden_field :content %>
                     </div>
-                    
-                    <div class="submit-group actions">
-                      <%= render='new' %>
-                    </div>
-                    
-                    <div class="actions">
-                        <%= f.submit 'Back!', name: 'back' %>
-                    </div>
-                    
+                    <br>
                     <center>
                     <div class="submit-group actions">
+                        <%= f.submit '戻る', name: 'back', class: "btn btn-default" %>
                         <%= f.submit "登録", class: "btn btn-success" %>
                     </div>
                     </center>
