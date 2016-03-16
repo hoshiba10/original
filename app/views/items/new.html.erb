@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-info">
+            
+            <div class="panel-heading">
+              <h1 class="panel-title">
+                <span class="glyphicon glyphicon-info-sign"></span> 
+                ゆずる
+              </h1>
+            </div>
+            
+            <div class="panel-body">
+            
+                <%= form_for @item, url: {action: 'confirm'} do |f| %>
+                    <%= render 'shared/error_messages', object: f.object %>
+                    
+                    <div class="col-md-offset-2">
+                        <%= image_tag 'no-image.png' %>
+                    </div>                    
+                    
+                    <div class="form-group">
+                        <%= f.label "タイトル" %>
+                        <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
+                    </div>
+                    
+                    <div class="form-group">
+                        <%= f.label "内容" %>
+                        <%= f.text_area :content, class: "form-control", placeholder: "ものの詳細" %>
+                    </div>
+                    
+                    <center>
+                    <div class="submit-group">
+                        <%= f.submit "確認画面へ", class: "btn btn-success" %>
+                    </div>
+                    </center>
+                <% end %>
+            </div>
+        </div>
+            
+    </div>
+</div>

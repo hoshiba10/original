@@ -12,4 +12,9 @@ Rails.application.routes.draw do
   end
   resources :sessions, only: [:new, :create, :destroy]
   
+  resources :items do
+    collection do
+      post :confirm
+    end
+  end
 end

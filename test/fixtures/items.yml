@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  titile: MyString
+  content: MyString
+  image: MyString
+  sold_out_flg: false
+
+two:
+  user_id: 1
+  titile: MyString
+  content: MyString
+  image: MyString
+  sold_out_flg: false
