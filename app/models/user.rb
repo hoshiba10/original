@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
     has_secure_password
     
+    mount_uploader :image, ImageUploader
+
+    
     has_many :items, dependent: :destroy
     
 end
