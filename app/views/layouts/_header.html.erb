@@ -3,21 +3,32 @@
     <div class="masthead">
       <h3 class="text-muted">マグスコ</h3>
       <% if logged_in? %>
-      <div class="btn"><%= link_to "ログアウト", logout_path, method: "delete" %></div>
+        <div class="btn col-md-offset-10"><%= link_to "ログアウト", logout_path, method: "delete" %></div>
         <nav>
           <ul class="nav nav-justified">
             <li><a href="#">新着順</a></li>
             <li><a href="#">検索</a></li>
             <li><a href="#">ゆずる</a></li>
-            <li><a href="#">プロフィール</a></li>
-            <li><%= link_to "設定", edit_user_path(current_user) %></a></li>
+            <li>
+              <%= link_to profile_user_path(current_user) do %>
+              <span class="glyphicon glyphicon-user"></span>
+              プロフィール
+              <% end %>
+            </li>
+            <li>
+              <%= link_to edit_user_path(current_user) do %>
+              <span class="glyphicon glyphicon-cog"></span>
+              設定
+              <% end %>
+              
+            </li>
           </ul>
         </nav>
       <% else %>
         <nav>
           <ul class="nav nav-justified">
-            <li><a href="#">新規登録</a></li>
-            <li><a href="#">ログイン</a></li>
+            <li><%= link_to "新規登録", '/signup' %></li>
+            <li><%= link_to "ログイン", '/login' %></li>
           </ul>
         </nav>
       <% end %>
