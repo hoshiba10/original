@@ -10,9 +10,17 @@
               </h3>
             </div>
             
+            
             <div class="panel-body">
               <%= current_user.name %>
             </div>
+            <center>
+              <%= form_for @user do |f| %>
+                <%= image_tag @user.image_url(:profile) %>
+                <%= f.file_field :image %>
+                <%= f.submit %>
+              <% end %>
+            </center>
         </div>
     </div>
 </div>

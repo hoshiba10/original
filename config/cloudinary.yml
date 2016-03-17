@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hpe1qwhne
+  api_key: '761585711928277'
+  api_secret: 4klUEQPCDM8XGO56a7XDE9i825Y
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hpe1qwhne
+  api_key: '761585711928277'
+  api_secret: 4klUEQPCDM8XGO56a7XDE9i825Y
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hpe1qwhne
+  api_key: '761585711928277'
+  api_secret: 4klUEQPCDM8XGO56a7XDE9i825Y
+  enhance_image_tag: true
+  static_image_support: false

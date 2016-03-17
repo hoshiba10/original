@@ -7,6 +7,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
   include Cloudinary::CarrierWave
   process :convert => 'png'
+  
+  version :profile do
+    process :resize_to_fit => [220, 300, :north]
+  end
 
   # Choose what kind of storage to use for this uploader:
   #storage :file
