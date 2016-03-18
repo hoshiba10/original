@@ -6,7 +6,11 @@
         <div class="btn col-md-offset-10"><%= link_to "ログアウト", logout_path, method: "delete" %></div>
         <nav>
           <ul class="nav nav-justified">
-            <li><a href="#">新着順</a></li>
+            <li><%= link_to '/items/show' do %>
+            <span class="glyphicon glyphicon-home"></span>
+            新着順
+            <% end %>
+            </li>
             <li><a href="#">検索</a></li>
             <li><%= link_to new_item_path(current_user) do %>
               <span class="glyphicon glyphicon-gift"></span>

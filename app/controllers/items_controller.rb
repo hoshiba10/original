@@ -4,8 +4,7 @@ class ItemsController < ApplicationController
     end
     
     def create
-        @item = Item.new(item_params)
-      
+        @item = current_user.items.build(item_params)
         if params[:back]
             render 'new'
         elsif @item.save
@@ -16,13 +15,20 @@ class ItemsController < ApplicationController
     end
     
     def confirm
-        @item = Item.new(item_params)
+        @item = current_user.items.build(item_params)
         render :new if @item.invalid?   
+    end
+    
+    def show
+        @item = Item.all
+        p "------------------"
+        p @item
+        p "------------------"
     end
     
     
     def item_params
-        params.require(:item).permit(:title, :image, :content, :image_cache)
+        params.require(:item).permit(:title, :image, :content, :image_cache, :user_id)
     end
     
 end
