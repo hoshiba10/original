@@ -12,6 +12,9 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [220, 300, :north]
   end
 
+  version :item_image do
+    process :resize_to_fit => [200, 280, :north]
+  end
   # Choose what kind of storage to use for this uploader:
   #storage :file
   # storage :fog

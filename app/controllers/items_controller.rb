@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
     
     def create
         @item = Item.new(item_params)
+      
         if params[:back]
             render 'new'
         elsif @item.save
@@ -21,7 +22,7 @@ class ItemsController < ApplicationController
     
     
     def item_params
-        params.require(:item).permit(:title, :image, :content)
+        params.require(:item).permit(:title, :image, :content, :image_cache)
     end
     
 end

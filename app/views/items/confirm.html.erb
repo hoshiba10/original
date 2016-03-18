@@ -14,12 +14,12 @@
                 <%= form_for @item do |f| %>
                     
                     <div class="col-md-offset-2">
-                        <%= image_tag 'no-image.png' %>
+                        <%= image_tag(@item.image) %>
                     </div>                    
-                    <%= f.hidden_field :image %>
+                    
+                    <%= f.hidden_field :image_cache %>
                     
                     <div class="field">
-                        
                         <%= @item.title %>
                         <%= f.hidden_field :title %>
                     </div>
