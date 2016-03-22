@@ -20,10 +20,7 @@ class ItemsController < ApplicationController
     end
     
     def show
-        @item = Item.all
-        p "------------------"
-        p @item
-        p "------------------"
+        @items = Item.all
     end
     
     

@@ -5,4 +5,7 @@ class Item < ActiveRecord::Base
      validates :title, presence: true
      validates :content, presence: true
      validates :image, presence: true
+     
+     has_many :favorite, :dependent => :destroy
+     has_many :favorited_users, :through => :favorite, :source => :user
 end

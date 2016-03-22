@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get :profile, on: :member
   end
   resources :sessions, only: [:new, :create, :destroy]
+  resources :favorites, only: [:create, :destroy]
   
   resources :items do
     collection do

@@ -1,17 +1,18 @@
 <div class="container">
     <h1>新着順(仮)</h1>
         <div class="row">
-            <% @item.each do |f| %>
+            <% @items.each do |item| %>
             <div class="col-sm-6 col-md-3">
-                <div class="thumbnail">
-                        <%= image_tag f.image_url(:item_image) %>
-                        <div class="caption">
-                            タイトル：<%= f.title %><br>
-                            <%= f.user.name %>
-                        </div>
-                        <br>
+                    <div class="thumbnail">
+                        <%= image_tag item.image_url(:item_image) %>
+                            <div class="caption">
+                                タイトル：<%= item.title %><br>
+                                <%= item.user.name %>
+                                <%= render 'favorite_form', item: item %>
+                            </div>
+                            <br>
+                    </div>
                 </div>
-            </div>
             <% end %>
         </div>
 </div>
