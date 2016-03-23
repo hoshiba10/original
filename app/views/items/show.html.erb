@@ -9,6 +9,11 @@
                                 タイトル：<%= item.title %><br>
                                 <%= item.user.name %>
                                 <%= render 'favorite_form', item: item %>
+                                <%= link_to detail_item_path(item) do %>
+                                <div class="btn btn-warning">
+                                もらう
+                                </div>
+                                <% end %>
                             </div>
                             <br>
                     </div>
