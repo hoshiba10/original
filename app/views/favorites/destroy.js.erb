@@ -1,2 +1,2 @@
-$("#favorite_form").html("<%= escape_javascript(render('/items/favorite', item: @item)) %>");
-
+$("#favorite_form-<%= item.id %>").html("<%= escape_javascript(render('items/favorite', item: @item)) %>");
+<div id="favorite_form-<%= item.id %>">

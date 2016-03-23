@@ -15,17 +15,11 @@ class User < ActiveRecord::Base
     has_many :items, dependent: :destroy
     
     def favorite_item(item)
-        p "favorite_item"
-        p item.id
         favorites.find_or_create_by(:item_id => item.id)        
     end
     
     def unfavorite_item(item)
-        p item.id
-        @item = favorites.find_by(:item_id => item.id)
-        p "bbbbbbbbbb"
-        p @item
-        p "bbbbbbbbbb"
+        @item = favorites.find_by(:item_id => item.item_id)
         @item.destroy if @item
     end
     

@@ -1,4 +1,4 @@
-<div id="favorite_form">
+<div id="favorite_form-<%= item.id %>">
   <% if current_user.favouriting?(item) %>
     <%= render 'unfavorite', item: item %>
   <% else %>
