@@ -1,5 +1,4 @@
 <%= form_for(current_user.favorites.build, remote: true) do |f| %>
   <div><%= f.hidden_field :item_id, :value => item.id %></div>
-  <%= item.id %>(By_favorite)
   <%= f.submit "Favorite", class: "btn btn-primary" %>
 <% end %>

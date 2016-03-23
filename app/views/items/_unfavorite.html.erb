@@ -1,7 +1,6 @@
 <%= form_for(current_user.favorites.find_by(:item_id => item.id),
              html: { method: :delete },
              remote: true) do |f| %>
-             <%= item.id %>(By unfavorite)
               
 　<div><%= f.hidden_field :item_id, :value => item.id %></div>
   <%= f.submit "Unfavorite", class: "btn" %>
