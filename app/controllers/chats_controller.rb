@@ -3,7 +3,6 @@ class ChatsController < ApplicationController
     before_action :check_user, only: [:index]
     
     def index
-        p params[:accept_id]
         @chat = Chat.new
         @chats = Chat.all
     end
