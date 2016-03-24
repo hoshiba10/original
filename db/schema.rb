@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160319021214) do
+ActiveRecord::Schema.define(version: 20160324075746) do
+
+  create_table "chats", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "item_user_id"
+    t.integer  "receive_user_id"
+    t.text     "chat_content"
+    t.boolean  "delete_flg"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "speaker_id"
+  end
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
@@ -31,8 +42,10 @@ ActiveRecord::Schema.define(version: 20160319021214) do
     t.string   "content"
     t.string   "image"
     t.boolean  "sold_out_flg"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "accept_user_id"
+    t.integer  "speaker_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item: 
+  item_user_id: 
+  receive_user_id: 
+  chat_content: MyText
+  delete_flg: false
+
+two:
+  item: 
+  item_user_id: 
+  receive_user_id: 
+  chat_content: MyText
+  delete_flg: false

@@ -12,11 +12,16 @@ Rails.application.routes.draw do
   end
   resources :sessions, only: [:new, :create, :destroy]
   resources :favorites, only: [:create, :destroy]
+  resources :chats, only:[:create, :destroy]
   
   resources :items do
     collection do
       post :confirm
     end
+  end
+  
+  resources :chats do
+    get :index, on: :member
   end
   
   resources :items do

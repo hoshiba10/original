@@ -21,13 +21,19 @@
             </center>
             
             <%= render 'favorite_form', item: @item %>
+
             <div class="btn btn-warning">
             もらう
             </div>
-            
+                        
             
             </div>
         </div>
     </div>
 </div>
+
+
+<%= link_to "もらう", chat_path(:accept_id => current_user.id) %>
+
+
 

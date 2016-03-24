@@ -1,0 +1,64 @@
+<br>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-info">
+          
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <span class="glyphicon glyphicon-info-sign"></span> 
+                詳細
+              </h3>
+            </div>
+            
+            
+            <div class="panel-body">
+            <center>
+            <%= image_tag @item.image_url(:item_image) %>
+            <br><br>
+            <%= @item.title %>
+            <br><br>
+            <%= @item.content %>
+            </center>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<br>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-info">
+          
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <span class="glyphicon glyphicon-info-sign"></span> 
+                連絡
+              </h3>
+            </div>
+            
+            
+            <div class="panel-body">
+                
+                    <% @chats.each do |chat| %>
+                    
+                      <span class="label label-info"></span>
+                      <%= chat.chat_content %>
+                      <br>
+                    <% end %>
+                 
+                
+                <%= form_for(@chat) do |f| %>
+                    内容
+                    <%= f.text_area :chat_content %>
+                    <%= @item.id %>
+                    <%= f.hidden_field :item_id, :value => @item.id %>
+                    <%= f.submit "送信" %>
+                <% end %>
+                
+            </div>
+        </div>
+    </div>
+</div>
