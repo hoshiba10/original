@@ -35,6 +35,8 @@ gem 'honoka-rails'
 gem 'carrierwave'
 
 gem 'cloudinary'
+
+gem "ransack"
 # Use Unicorn as the app server
 # gem 'unicorn'
 
