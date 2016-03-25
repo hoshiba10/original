@@ -1,0 +1,17 @@
+<h1>検索</h1>
+
+
+
+<%= form_tag({controller: :searches, action: :search}) do %>
+  <%= text_field_tag :keyword %>
+  <%= button_tag(type: "submit", class: "btn btn-default") do %>
+  Search
+  <% end %>
+<% end %>
+
+<% if @searches.present? %>
+    <% @searches.each do |item| %>
+        <br>
+        <%= item.title %>
+    <% end %>
+<% end %>

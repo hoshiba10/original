@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   end
   resources :sessions, only: [:new, :create, :destroy]
   resources :favorites, only: [:create, :destroy]
-  resources :chats, only:[:create, :destroy]
-  resources :searches
+  resources :chats, only: [:create, :destroy]
+  match 'searches', to: 'searches#search', via: ['post', 'get']
+
   
   resources :items do
     collection do
