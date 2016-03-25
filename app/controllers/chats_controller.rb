@@ -3,14 +3,18 @@ class ChatsController < ApplicationController
     before_action :check_user, only: [:index]
     
     def index
+        @give_user = User.find(@item.user.id)
+        @receive_user = User.find(@item.accept_user_id)
         @chat = Chat.new
-        @chats = Chat.all
+        @chats = Chat.where(item_id: params[:id])
+        p @chats
     end
     
 
     def create
         @item = Item.find(chat_params[:item_id])
         @chat = Chat.new(chat_params)
+        @chat.speaker_id = current_user.id
         @chat.save
         redirect_to action: :index, id: @item.id
     end

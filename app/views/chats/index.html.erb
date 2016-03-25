@@ -39,23 +39,31 @@
               </h3>
             </div>
             
-            
+            <%= @give_user.name %>
+            <%= @receive_user.name %>
             <div class="panel-body">
                 
                     <% @chats.each do |chat| %>
-                    
-                      <span class="label label-info"></span>
-                      <%= chat.chat_content %>
-                      <br>
-                    <% end %>
-                 
+                        <div class="panel panel-primary">
+                          <div class="col-mod-2">
+                            <% if chat.speaker_id == @give_user.id %>
+                              <%= image_tag @give_user.image_url(:chat_image), class: 'img-rounded' %>
+                            <% else %>
+                              <%= image_tag @receive_user.image_url(:chat_image), class: 'img-rounded' %>
+                            <% end %>
+                          </div>
+                          <div class="panel panel-primary col-mod-2">
+                            <%= chat.chat_content %>
+                          </div>
+                        </div>
+                        <br>
+                      <% end %>
                 
                 <%= form_for(@chat) do |f| %>
                     内容
-                    <%= f.text_area :chat_content %>
-                    <%= @item.id %>
-                    <%= f.hidden_field :item_id, :value => @item.id %>
-                    <%= f.submit "送信" %>
+                      <%= f.text_area :chat_content %>
+                      <%= f.hidden_field :item_id, :value => @item.id %>
+                      <%= f.submit "送信" %>
                 <% end %>
                 
             </div>
