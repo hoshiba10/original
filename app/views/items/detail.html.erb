@@ -22,8 +22,11 @@
             
             <%= render 'favorite_form', item: @item %>
 
-
-            <%= link_to "もらう", chat_path(:accept_id => current_user.id), class: "btn btn-info" %>
+            <% if @item.accept_user_id.nil?%>
+                <%= link_to "もらう", chat_path(:accept_id => current_user.id), class: "btn btn-info", data:{ :confirm => "「もらう」を選択してもよろしいですか？"} %>
+            <% else %>
+                <div class="label label-danger">売り切れ</div>
+            <% end %>
             
             </div>
         </div>

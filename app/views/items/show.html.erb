@@ -1,23 +1,27 @@
 <div class="container">
     <h1>新着順(仮)</h1>
-        <div class="row">
-            <% @items.each do |item| %>
-            <div class="col-sm-6 col-md-3">
-                    <div class="thumbnail">
-                        <%= image_tag item.image_url(:item_image) %>
-                            <div class="caption">
-                                タイトル：<%= item.title %><br>
-                                <%= item.user.name %>
-                                <%= render 'favorite_form', item: item %>
-                                <%= link_to detail_item_path(item) do %>
-                                <div class="btn btn-warning">
-                                もらう
+        <div class="panel panel-default">
+            <div class="row">
+                <% @items.each do |item| %>
+                <div class="col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <%= image_tag item.image_url(:item_image) %>
+                                <div class="caption">
+                                    タイトル：<%= item.title %><br>
+                                    <%= item.user.name %>
+                                    
+                                        <%= render 'favorite_form', item: item %>
+                                        <%= link_to detail_item_path(item) do %>
+                                            <div class="btn btn-warning">詳細</div>
+                                        <% end %>
+                                    <% unless item.accept_user_id.nil? %>
+                                        <div class="label label-danger">売り切れ</div>
+                                    <% end %>
                                 </div>
-                                <% end %>
-                            </div>
-                            <br>
-                    </div>
+                                <br>
+                        </div>
+                </div>
+                <% end %>
             </div>
-            <% end %>
         </div>
 </div>
