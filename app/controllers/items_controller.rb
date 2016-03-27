@@ -25,6 +25,9 @@ class ItemsController < ApplicationController
     
     def detail
         @item = Item.find(params[:id])
+        if @item.accept_user_id == current_user.id || @item.user.id == current_user.id
+            redirect_to chat_path
+        end
     end
     
     
