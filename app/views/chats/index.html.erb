@@ -66,6 +66,8 @@
                       <%= f.submit "送信" %>
                 <% end %>
                 
+                <%= link_to "取引完了！", complete_chat_path(:current => current_user.id), class: "btn btn-primary", data:{ :confirm => "取引完了してもよろしいですか？"} %>
+                
             </div>
         </div>
     </div>

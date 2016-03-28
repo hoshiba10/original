@@ -23,6 +23,13 @@ class ChatsController < ApplicationController
         @chats = Chat.all
     end
     
+    def complete
+        item = Item.find(params[:id])
+        item.sold_out_flg = true
+        item.save
+        redirect_to item_path 
+    end
+    
     private
     def chat_params
         params.require(:chat).permit(:id, :chat_content, :item_id)

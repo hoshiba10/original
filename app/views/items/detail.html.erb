@@ -26,7 +26,7 @@
                 
             <% end %>
 
-            <% if @item.accept_user_id.nil? || @item.accept_user_id == current_user.id || @item.user.id == current_user.id%>
+            <% if @item.accept_user_id.nil? || @item.accept_user_id == current_user.id || @item.user.id == current_user.id %>
                 <%= link_to "もらう", chat_path(:accept_id => current_user.id), class: "btn btn-info", data:{ :confirm => "「もらう」を選択してもよろしいですか？"} %>
             <% else %>
                 <div class="label label-danger">売り切れ</div>

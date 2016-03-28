@@ -26,6 +26,10 @@ Rails.application.routes.draw do
     get :index, on: :member
   end
   
+  resources :chats do
+    get :complete, on: :member
+  end
+  
   resources :items do
     get :detail, on: :member
   end
