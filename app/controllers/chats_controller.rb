@@ -3,11 +3,14 @@ class ChatsController < ApplicationController
     before_action :check_user, only: [:index]
     
     def index
-        @give_user = User.find(@item.user.id)
-        @receive_user = User.find(@item.accept_user_id)
-        @chat = Chat.new
-        @chats = Chat.where(item_id: params[:id])
-        p @chats
+        if @item.sold_out_flg != true
+            @give_user = User.find(@item.user.id)
+            @receive_user = User.find(@item.accept_user_id)
+            @chat = Chat.new
+            @chats = Chat.where(item_id: params[:id])
+        else 
+            redirect_to detail_item_path
+        end
     end
     
 
