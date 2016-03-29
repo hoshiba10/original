@@ -37,6 +37,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+  def favorite
+    @user = User.find(params[:user_id])
+    @favorite_items = @user.favorited_items
+  end
+  
+  def my_item
+    @user = User.find(params[:user_id])
+    @items = @user.items
+  end
+  
   private 
   def user_params
     params.require(:user).permit(:name, :email, :address, :password, :password_confirmation, :image)

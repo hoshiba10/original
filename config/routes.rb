@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   get     'signup', to: 'users#new'
   resources :users do
     get :profile, on: :member
+    get :favorite
+    get :my_item
   end
+  
   resources :sessions, only: [:new, :create, :destroy]
   resources :favorites, only: [:create, :destroy]
   resources :chats, only: [:create, :destroy]
