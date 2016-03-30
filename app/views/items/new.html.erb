@@ -15,9 +15,7 @@
                     <%= render 'shared/error_messages', object: f.object %>
                     
                     <div class="col-md-offset-2">
-                        <%# image_tag @item.image_url(:item_image) %>
                         <%= f.file_field :image %>
-                        <%# image_tag 'no-image.png' %>
                     </div>                    
                     
                     <div class="form-group">

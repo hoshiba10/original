@@ -7,16 +7,16 @@
                         <div class="thumbnail">
                             <%= image_tag item.image_url(:item_image) %>
                                 <div class="caption">
-                                    タイトル：<%= item.title %><br>
-                                    <%= item.user.name %>
-                                    
-                                        <%= render 'favorite_form', item: item %>
-                                        <%= link_to detail_item_path(item) do %>
-                                            <div class="btn btn-warning">詳細</div>
-                                        <% end %>
+                                    <strong><%= item.title %></strong><br>
                                     <% unless item.accept_user_id.nil? %>
-                                        <div class="label label-danger">売り切れ</div>
+                                        <div class="label label-danger">売り切れ</div><br>
                                     <% end %>
+                                    <br>
+                                        <%= link_to detail_item_path(item) do %>
+                                            <div class="btn btn-warning">詳細</div><br><br>
+                                        <% end %>
+                                        <%= render 'favorite_form', item: item %>
+                                    
                                 </div>
                                 <br>
                         </div>
