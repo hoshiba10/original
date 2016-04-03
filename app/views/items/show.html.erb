@@ -1,7 +1,14 @@
+<br>
 <div class="container">
-    <h1>新着順(仮)</h1>
-        <div class="panel panel-default">
-            <div class="row">
+    <div class="row">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+              <h1 class="panel-title">
+                <span class="glyphicon glyphicon-info-sign"></span> 
+                新着
+              </h1>
+            </div>
+                <div class="panel-body">
                 <% @items.each do |item| %>
                 <div class="col-sm-6 col-md-3">
                         <div class="thumbnail">
@@ -22,6 +29,7 @@
                         </div>
                 </div>
                 <% end %>
+                </div>
             </div>
         </div>
 </div>

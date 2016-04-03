@@ -17,30 +17,25 @@
             </center>
             <br>
             <hr>
-            <strong><%= @item.title %></strong>
-            <br>
-             <% if @item.accept_user_id.nil? || @item.accept_user_id == current_user.id || @item.user.id == current_user.id %>
-                <%= link_to "もらう", chat_path(:accept_id => current_user.id), class: "btn btn-info", data:{ :confirm => "「もらう」を選択してもよろしいですか？"} %>
-            <% else %>
-                    <div class="label label-danger">売り切れ</div>
-            <% end %>
             
+            <h3><strong><%= @item.title %></strong></h3><hr>
+            <% if @item.sold_out_flg != true %>
+                 <% if @item.accept_user_id.nil? || @item.accept_user_id == current_user.id || @item.user.id == current_user.id %>
+                    <%= link_to "もらう", chat_path(:accept_id => current_user.id), class: "btn btn-info", data:{ :confirm => "「もらう」を選択してもよろしいですか？"} %>
+                <% else %>
+                        <div class="label label-danger">売り切れ</div>
+                <% end %>
+            <% else %>
+                <div class="label label-danger">売り切れ</div>
+            <% end %>
             <%= render 'favorite_form', item: @item %>
             
-            <hr>
-            <br>
-            
-            <small>[ものの内容]</small><br>
             
             <hr>
+            [ものの詳細]<br>
             <%= @item.content %>
             
-            
-
-            <% if @item.accept_user_id == current_user.id || @item.user.id == current_user.id %>
-                
-            <% end %>
-                
+       
 
             </div>
         </div>

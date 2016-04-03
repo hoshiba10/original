@@ -45,26 +45,32 @@
                 
                     <% @chats.each do |chat| %>
                         <div class="panel panel-primary">
-                          <div class="col-mod-2">
+                          
                             <% if chat.speaker_id == @give_user.id %>
-                              <%= image_tag @give_user.image_url(:chat_image), class: 'img-rounded' %>
+                              <% if @give_user.image_url(:chat_image).present? %>
+                                <%= image_tag @give_user.image_url(:chat_image), class: 'img-rounded' %>
+                              <% else %>
+                                <%= image_tag 'no-image-70px.jpg' %>
+                              <% end %>
                             <% else %>
                               <%= image_tag @receive_user.image_url(:chat_image), class: 'img-rounded' %>
                             <% end %>
-                          </div>
-                          <div class="panel panel-primary col-mod-2">
+                          
+                          
                             <%= chat.chat_content %>
-                          </div>
+                          
                         </div>
                         <br>
                       <% end %>
                 
-                <%= form_for(@chat) do |f| %>
-                    内容
-                      <%= f.text_area :chat_content %>
-                      <%= f.hidden_field :item_id, :value => @item.id %>
-                      <%= f.submit "送信" %>
-                <% end %>
+                <div class="form-group">
+                  <%= form_for(@chat) do |f| %>
+                      内容
+                        <%= f.text_area :chat_content, class: "form-control", placeholder: "日時など決めて連絡をとり合おう" %>
+                        <%= f.hidden_field :item_id, :value => @item.id %>
+                        <center><%= f.submit "送信", class:"btn btn-default" %></center>
+                  <% end %>
+                </div>
                 
                 <% if @item.user.id == current_user.id%>
                   <%= link_to "取引完了！", complete_chat_path(:current => current_user.id), class: "btn btn-primary", data:{ :confirm => "取引完了してもよろしいですか？"} %>
