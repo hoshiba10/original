@@ -18,6 +18,8 @@
                                     <% end %>
                                 </div>
                                 <br>
+                            <%= link_to "削除", item, method: "delete", data: {confirm: '削除してもよろしいですか？'} %>
+                            
                         </div>
                 </div>
                 <% end %>

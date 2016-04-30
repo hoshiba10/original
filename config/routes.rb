@@ -19,12 +19,6 @@ Rails.application.routes.draw do
   match 'searches', to: 'searches#search', via: ['post', 'get']
 
   
-  resources :items do
-    collection do
-      post :confirm
-    end
-  end
-  
   resources :chats do
     get :index, on: :member
   end
@@ -35,6 +29,12 @@ Rails.application.routes.draw do
   
   resources :items do
     get :detail, on: :member
+  end
+  
+  resources :items do
+    collection do
+      post :confirm
+    end
   end
   
 end
