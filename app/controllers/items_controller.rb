@@ -8,7 +8,8 @@ class ItemsController < ApplicationController
         if params[:back]
             render 'new'
         elsif @item.save
-            redirect_to '/users/new', notice: 'ものを登録しました.'
+            flash[:info] = "ものを登録しました"
+            redirect_to '/items/new'
         else
             render 'new'
         end
@@ -16,7 +17,7 @@ class ItemsController < ApplicationController
     
     def confirm
         @item = current_user.items.build(item_params)
-        render :new if @item.invalid?   
+        render :new if @item.invalid? 
     end
     
     def show
