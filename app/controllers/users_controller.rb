@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :create_user, only: [:show, :edit, :update, :favorite]
 
   def new
     @user = User.new
@@ -17,29 +17,31 @@ class UsersController < ApplicationController
   end
   
   def show
-    p params
-    @user = User.find(params[:id])
   end
   
   def edit
-    @user = User.find(params[:id])
   end
   
   def update
-    @user = User.find(params[:id])
-    if @user.update(user_params)
-      redirect_to @user
-    else
-      render 'edit'
+    p params
+    image = params[:user].presence || nil
+    if image != nil
+        if @user.update(user_params)
+          flash[:info] = "プロフィール画像を変更しました"
+          render '/users/profile'
+        else
+          render '/users/profile'
+        end
+    else 
+      render '/users/profile'
     end
   end
   
   def profile
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
   
   def favorite
-    @user = User.find(params[:user_id])
     @favorite_items = @user.favorited_items
   end
   
@@ -53,4 +55,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :address, :password, :password_confirmation, :image)
   end
   
+  def create_user
+    @user = User.find(current_user.id)
+  end
 end

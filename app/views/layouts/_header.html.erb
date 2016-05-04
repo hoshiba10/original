@@ -3,7 +3,9 @@
     <div class="masthead">
       <h3 class="text-muted">マグスコ</h3>
       <% if logged_in? %>
-        <div class="btn col-md-offset-10"><%= link_to "ログアウト", logout_path, method: "delete" %></div>
+        <%= link_to logout_path, method: "delete" do %>
+            <div class="btn btn-primary col-md-offset-10">ログアウト</div><br><br>
+        <% end %>
         <nav>
           <ul class="nav nav-justified">
             <li><%= link_to '/items/show' do %>

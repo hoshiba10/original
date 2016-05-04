@@ -15,6 +15,7 @@
                             <%= image_tag item.image_url(:item_image) %>
                                 <div class="caption">
                                     <strong><%= item.title %></strong><br>
+                                    <strong>住所：<%= item.user.address %></strong><br>
                                     <% unless item.accept_user_id.nil? %>
                                         <div class="label label-danger">売り切れ</div><br>
                                     <% end %>

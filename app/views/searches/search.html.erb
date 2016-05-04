@@ -28,8 +28,8 @@
                             <div class="thumbnail">
                                 <%= image_tag item.image_url(:item_image) %>
                                 <div class="caption">
-                                    タイトル：<%= item.title %><br>
-                                    <%= item.user.name %>
+                                    <strong><%= item.title %></strong><br>
+                                    <strong><%= item.user.address %></strong><br>
                                     <%= link_to detail_item_path(item) do %>
                                         <div class="btn btn-warning">詳細</div>
                                     <% end %>
