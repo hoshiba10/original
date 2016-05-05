@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     def create
     @user = User.new(user_params)
     if @user.save
+      PostMailer.post_email(@user).deliver
       flash[:success] = "会員登録が完了しました"
       session[:user_id] = @user.id
       redirect_to user_path(@user)
