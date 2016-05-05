@@ -5,24 +5,20 @@
             <div class="panel-heading">
               <h1 class="panel-title">
                 <span class="glyphicon glyphicon-info-sign"></span> 
-                ログイン
+                パスワード忘れた時
               </h1>
             </div>
 
         <div class="panel-body">
         
-        <%= form_for(:session, url: login_path) do |f| %>
+        <%= form_for(:session, url: forget_path) do |f| %>
         
             <%= f.label 'メールアドレス' %>
             <%= f.text_field :email, class: 'form-control' %>
-            
-            <%= f.label 'パスワード' %>
-            <%= f.password_field :password, class: 'form-control' %><br>
-            
-            <%= f.submit "ログイン", class: "btn btn-primary" %>
+            <br>
+            <%= f.submit "送信", class: "btn btn-primary" %>
             
         <% end %>
-        <%= link_to "パスワード忘れた時", forget_path %>
         </div>
         
     </div>

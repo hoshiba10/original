@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get    'login',  to: 'sessions#new'
   post   'login',  to: 'sessions#create'
+  get    'forget', to: 'sessions#edit'
+  post   'forget', to: 'sessions#update'
   delete 'logout', to: 'sessions#destroy'
   
   get     'signup', to: 'users#new'
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
     get :my_item
   end
   
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create, :edit, :update, :destroy]
   resources :favorites, only: [:create, :destroy]
   resources :chats, only: [:create, :destroy]
   match 'searches', to: 'searches#search', via: ['post', 'get']
