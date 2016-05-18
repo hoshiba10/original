@@ -24,17 +24,17 @@ class UsersController < ApplicationController
   end
   
   def update
-    p params
-    image = params[:user].presence || nil
-    if image != nil
-        if @user.update(user_params)
-          flash[:info] = "プロフィール画像を変更しました"
-          render '/users/profile'
-        else
-          render '/users/profile'
-        end
-    else 
-      render '/users/profile'
+    if params[:user][:password] != params[:user][:password_confirmation]
+      flash[:danger] = "パスワードが一致していません"
+      redirect_to edit_user_path(current_user)
+    else
+      image = params[:user].presence || nil
+      if image != nil
+          if @user.update(user_params)
+            flash[:info] = "プロフィールを変更しました"
+          end
+          redirect_to profile_user_path(current_user)
+      end
     end
   end
   
